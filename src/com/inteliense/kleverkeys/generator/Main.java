@@ -42,7 +42,7 @@ public class Main {
             System.err.println("Invalid path or filename.");
             System.exit(1);
         }
-        
+
         txtFilePath += ".txt";
         classFilePath += ".cpp";
 
@@ -99,15 +99,13 @@ public class Main {
 
             }
 
-        //WINDOWS does not actually correct the path. You can fix as needed.
-            
         } else if(path.contains("\\")) {
 
             if(filename.contains("\\")) {
                 return null;
             }
 
-            if(path.charAt(0) == '\\') {
+            if(path.substring(0, 4) == "C:\\") {
 
                 if(path.charAt(path.length() - 1) == '\\') {
                     return path + filename;
