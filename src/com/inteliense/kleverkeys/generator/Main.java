@@ -105,7 +105,7 @@ public class Main {
                 return null;
             }
 
-            if(path.substring(0, 4) == "C:\\") {
+            if(path.substring(0, 3) == "C:\\") {
 
                 if(path.charAt(path.length() - 1) == '\\') {
                     return path + filename;
