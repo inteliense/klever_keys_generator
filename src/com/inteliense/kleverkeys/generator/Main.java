@@ -99,7 +99,7 @@ public class Main {
 
             }
 
-        //WINDOWS does not actually correct the path.
+        //WINDOWS does not actually correct the path. You can fix as needed.
             
         } else if(path.contains("\\")) {
 
