@@ -60,7 +60,7 @@ public class Main {
 
         }
 
-        for(int i=0; i<bit256Ivs; i++) {
+        for(int i=0; i<bit128Keys; i++) {
 
             generated.add(KeyGenerator.generateKey(16));
 
@@ -68,7 +68,7 @@ public class Main {
 
         for(int i=0; i<bit128Ivs; i++) {
 
-            generated.add(KeyGenerator.generateIv(8));
+            generated.add(KeyGenerator.generateIv(16));
 
         }
 
