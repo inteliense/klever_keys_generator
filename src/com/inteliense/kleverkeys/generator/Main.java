@@ -35,13 +35,16 @@ public class Main {
         System.out.print("Enter the path for the files: ");
         String path = scnr.nextLine();
 
-        String txtFilePath = fixPath(path, filename) + ".txt";
-        String classFilePath = fixPath(path, filename) + ".cpp";
+        String txtFilePath = fixPath(path, filename);
+        String classFilePath = fixPath(path, filename);
 
         if(txtFilePath == null || classFilePath == null) {
             System.err.println("Invalid path or filename.");
             System.exit(1);
         }
+        
+        txtFilePath += ".txt";
+        classFilePath += ".cpp";
 
         ArrayList<String[]> generated = new ArrayList<>();
 
