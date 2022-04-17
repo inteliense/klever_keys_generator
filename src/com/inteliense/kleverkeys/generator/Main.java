@@ -99,6 +99,8 @@ public class Main {
 
             }
 
+        //WINDOWS does not actually correct the path.
+            
         } else if(path.contains("\\")) {
 
             if(filename.contains("\\")) {
