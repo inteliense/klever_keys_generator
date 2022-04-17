@@ -29,12 +29,7 @@ public class KeyGenerator {
         if(bytes == 16) {
             String[] result = AES.generateIv(bytes);
             result[2] = getRandomId();
-            result[3] = "128 bit IV (for 256 bit key)";
-            return result;
-        } else if(bytes == 8) {
-            String[] result = AES.generateIv(bytes);
-            result[2] = getRandomId();
-            result[3] = "64 bit IV (for 128 bit key)";
+            result[3] = "128 bit IV (for 128 & 256 bit key)";
             return result;
         }
 
