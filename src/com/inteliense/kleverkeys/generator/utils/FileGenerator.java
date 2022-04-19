@@ -66,6 +66,7 @@ public class FileGenerator {
         pw.println("// For extra security, complete the last return value with a secure random hex value. (32 bytes)");
         pw.println();
         pw.println("#include \"" + className.replace(".cpp", ".h") + "\"");
+        pw.println("#include \"easy_encrypt/EasyEncrypt.h\"");
         pw.println();
 
         Random rand = new Random(System.nanoTime() + 182045);
@@ -100,6 +101,12 @@ public class FileGenerator {
         pw.println("std::string " + className.replace(".cpp", "") + "::get(std::string id) {");
         pw.println();
 
+        pw.println("\tstd::string upperId = EasyEncrypt::Utils::toUpperCase(id);");
+        pw.println("\tstd::string hashedId = EasyEncrypt::Utils::toUpperCase(EasyEncrypt::SHA::hash256((char*) upperId.c_str()));");
+        pw.println();
+
+        pw.println("");
+
         for(int i=0; i<generated.size(); i++) {
 
             String strId = generated.get(i)[2];
@@ -107,12 +114,12 @@ public class FileGenerator {
 
             if(i == 0 ) {
 
-                pw.println("\tif(id == \"" + strId.toUpperCase() + "\") {");
+                pw.println("\tif(hashedId == \"" + SHA.get256(strId.toUpperCase()).toUpperCase() + "\") {");
                 pw.println("\t\treturn GetString" + id + "();");
 
             } else {
 
-                pw.println("\t} else if(id == \"" + strId.toUpperCase() + "\") {");
+                pw.println("\t} else if(hashedId == \"" + SHA.get256(strId.toUpperCase()).toUpperCase() + "\") {");
                 pw.println("\t\treturn GetString" + id + "();");
 
             }
@@ -121,8 +128,8 @@ public class FileGenerator {
         }
 
         pw.println("\t}\n\n");
-        pw.println("\t//return new HexSecureRandom();");
-        pw.println("\treturn \"\";");
+        pw.println("\t//return a random SHA hash, disguised as a 32 bit hex key.");
+        pw.println("\treturn EasyEncrypt::Utils::toUpperCase(EasyEncrypt::SHA::sha256((char*) std::to_string(EasyEncrypt::Utils::goodRandom(0, INT32_MAX, 0)).c_str()));");
         pw.println();
         pw.println();
         pw.println("}");
