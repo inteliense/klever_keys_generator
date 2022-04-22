@@ -101,7 +101,7 @@ public class FileGenerator {
         pw.println();
 
         pw.println("\tstd::string upperId = EasyEncrypt::Utils::toUpperCase(id);");
-        pw.println("\tstd::string hashedId = EasyEncrypt::Utils::toUpperCase(EasyEncrypt::SHA::hash256((char*) upperId.c_str()));");
+        pw.println("\tstd::string hashedId = EasyEncrypt::Utils::toUpperCase(EasyEncrypt::SHA::Hex::hash256((char*) upperId.c_str()));");
         pw.println();
 
         pw.println("");
