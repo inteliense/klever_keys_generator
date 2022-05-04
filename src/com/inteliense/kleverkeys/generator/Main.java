@@ -1,7 +1,9 @@
 package com.inteliense.kleverkeys.generator;
 
+import com.inteliense.kleverkeys.generator.utils.AES;
 import com.inteliense.kleverkeys.generator.utils.FileGenerator;
 import com.inteliense.kleverkeys.generator.utils.KeyGenerator;
+import com.inteliense.kleverkeys.generator.utils.SHA;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,7 +13,7 @@ public class Main {
     private static Scanner scnr;
 
     public static void main(String[] args) throws Exception {
-
+        
         scnr = new Scanner(System.in);
         promptUser();
 
