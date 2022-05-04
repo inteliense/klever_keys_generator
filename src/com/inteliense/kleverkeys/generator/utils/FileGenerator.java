@@ -129,7 +129,7 @@ public class FileGenerator {
         pw.println("\t}\n\n");
         pw.println("\t//return a random hex value, disguised as a 32 bit hex key.");
         pw.println("\treturn EasyEncrypt::Utils::toUpperCase(" +
-                "(const char*) EasyEncrypt::Random::secureEncoded(32, EasyEncrypt::HEX));");
+                "EasyEncrypt::Random::secureEncoded(EasyEncrypt::HEX, 32).c_str());");
         pw.println();
         pw.println();
         pw.println("}");
