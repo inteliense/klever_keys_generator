@@ -1,4 +1,4 @@
-package com.inteliense.kleverkeys.generator.utils;
+package com.inteliense.kleverkeysgenerator.utils;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -20,7 +20,7 @@ public class SHA {
             BigInteger no = new BigInteger(1, messageDigest);
             String hashtext = no.toString(16);
 
-            while (hashtext.length() < 32) {
+            while (hashtext.length() < 128) {
                 hashtext = "0" + hashtext;
             }
 
@@ -42,11 +42,11 @@ public class SHA {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
 
             byte[] messageDigest = md.digest(input.getBytes());
-            BigInteger no = new BigInteger(1, messageDigest);
 
+            BigInteger no = new BigInteger(1, messageDigest);
             String hashtext = no.toString(16);
 
-            while (hashtext.length() < 32) {
+            while (hashtext.length() < 64) {
                 hashtext = "0" + hashtext;
             }
 
