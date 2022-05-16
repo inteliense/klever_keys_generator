@@ -1,4 +1,4 @@
-package com.inteliense.kleverkeys.generator.utils;
+package com.inteliense.kleverkeysgenerator.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -101,7 +101,7 @@ public class FileGenerator {
         pw.println();
 
         pw.println("\tstd::string upperId = EasyEncrypt::Utils::toUpperCase(id);");
-        pw.println("\tstd::string hashedId = EasyEncrypt::Utils::toUpperCase(EasyEncrypt::SHA::Hex::hash256((char*) upperId.c_str()));");
+        pw.println("\tstd::string hashedId = EasyEncrypt::Utils::toUpperCase(EasyEncrypt::SHA::Hex::hash256(upperId));");
         pw.println();
 
         pw.println("");
@@ -129,7 +129,7 @@ public class FileGenerator {
         pw.println("\t}\n\n");
         pw.println("\t//return a random hex value, disguised as a 32 bit hex key.");
         pw.println("\treturn EasyEncrypt::Utils::toUpperCase(" +
-                "EasyEncrypt::Random::secureEncoded(EasyEncrypt::HEX, 32).c_str());");
+                "EasyEncrypt::Random::secureEncoded(EasyEncrypt::HEX, 32));");
         pw.println();
         pw.println();
         pw.println("}");
