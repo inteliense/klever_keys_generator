@@ -1,4 +1,4 @@
-package com.inteliense.kleverkeysgenerator.utils;
+package com.inteliense.kleverkeys.generator.utils;
 
 import java.io.File;
 import java.io.IOException;
